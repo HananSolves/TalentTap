@@ -9,12 +9,11 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "node --watch --env-file=.env.local backend/app.js"
+    "server": "node --watch backend/app.js"
   },
   "dependencies": {
     "axios": "^1.7.3",
     "bcrypt": "^5.1.1",
-    "body-parser": "^1.20.2",
     "cloudinary": "^2.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",

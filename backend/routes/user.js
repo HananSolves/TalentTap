@@ -1,14 +1,14 @@
-// modules
+// Third-Party Modules
 import express from "express";
 import multer from "multer";
 
-// controllers
+// Controllers
 import handleUserSignUp from "../controllers/handleUserSignUp.js";
 import handleUserLogIn from "../controllers/handleUserLogIn.js";
 import handleUserSignOut from "../controllers/handleUserSignOut.js";
 import getUserInfo from "../controllers/getUserInfo.js";
 
-// middlewares
+// Custom Middlewares
 import { loggedIn } from "../middlewares/auth.js";
 
 const upload = multer({

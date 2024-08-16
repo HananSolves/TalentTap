@@ -13,6 +13,16 @@ import { employersOnly, isOwner } from "../middlewares/auth.js";
 
 const router = express.Router();
 
+// try {
+//     if (!mongoose.connection.readyState) {
+//       await mongoose.connect(process.env.MONGO_URL);
+//     }
+//     next();
+//   } catch (err) {
+//     console.error("MongoDB Connection Failed!", err);
+//     res.status(500).send("Database connection error");
+//   }
+
 router.route("/").post(employersOnly, postJob).get(getJobs);
 router
   .route("/:id")

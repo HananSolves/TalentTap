@@ -1,53 +1,51 @@
-"use strict"; // to write “secure” JavaScript, It catches common coding errors
+"use strict";
 
-// modules
+// Third-Party Modules
 import express from "express";
-import path from "path";
-import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import "dotenv/config";
 
-// routes
+// Custom Middlewares
+import notFound from "./middlewares/notFound.js";
+import errorHandler from "./middlewares/errorHandler.js";
+
+// Route Handlers
 import userRouter from "./routes/user.js";
 import databaseRouter from "./routes/jobs.js";
 
+// Database Connector
 import connectToMongoDB from "./connection.js";
 
-// middlewares
-// import { employersOnly } from "./middlewares/auth.js";
-
 const app = express();
-const port = process.env.PORT || 3000; // Default to port 3000 if PORT is not defined
-const __dirpath = path.resolve();
-const notFoundPage = path.join(__dirpath, "backend", "NotFound.html");
 
 // connecting to database "TalentTap"
 connectToMongoDB();
 
 // middlewares
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.use(cookieParser());
+
+// CORS Configuration
 const corsOptions = {
-  origin: "http://localhost:3000", // or your front-end domain
+  origin: process.env.CORS_ORIGIN || "http://localhost:3000",
   credentials: true,
 };
 app.use(cors(corsOptions));
 
-// routes
-app.use("/user", userRouter);
-app.use("/jobs", databaseRouter);
+// Route Handlers
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/jobs", databaseRouter);
 
-app.use((req, res, next) => {
-  res.status(404).sendFile(notFoundPage);
-});
+// NotFoundPage
+app.use(notFound);
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
+// Error-handling middleware
+app.use(errorHandler);
+
+const port = process.env.PORT || 8000;
 
 app.listen(port, () => {
   console.log(`The App is listening on port ${port}`);

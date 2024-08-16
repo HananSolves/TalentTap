@@ -73,5 +73,13 @@ const jobSchema = new mongoose.Schema(
   { timestamps: true } // Automatically manage createdAt and updatedAt fields
 );
 
+// Custom Document Method
+jobSchema.methods.getFormattedDates = function () {
+  return {
+    applicationDeadline: format(this.applicationDeadline, "MMMM do, yyyy"),
+    postedDate: format(this.postedDate, "MMMM do, yyyy"),
+  };
+};
+
 const Job = mongoose.model("Job", jobSchema);
 export default Job;

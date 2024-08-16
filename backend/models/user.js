@@ -1,6 +1,8 @@
+// Third-Party Modules
 import mongoose from "mongoose";
 import validator from "validator";
 
+// Defining User Schema
 const userSchema = new mongoose.Schema(
   {
     name: {
@@ -16,7 +18,11 @@ const userSchema = new mongoose.Schema(
       required: true,
       unique: true,
       lowercase: true,
-      validate: [validator.isEmail, "Please enter a valid email address."],
+      immutable: true,
+      validate: {
+        validator: (email) => validator.isEmail(email),
+        message: "Please enter a valid email address.",
+      },
     },
     password: {
       type: String,
@@ -37,7 +43,8 @@ const userSchema = new mongoose.Schema(
     role: {
       type: String,
       required: true,
-      enum: ["employee", "employer"], // enum keyword is used to specify an array of allowed values for a string field.
+      default: "employee",
+      enum: ["employee", "employer"],
     },
     profileImage: {
       type: String,
@@ -53,5 +60,5 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const User = mongoose.model("user", userSchema);
+const User = mongoose.model("User", userSchema);
 export default User;
