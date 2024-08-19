@@ -1,6 +1,6 @@
 // models
-import Job from "../models/job.js";
-import User from "../models/user.js";
+import Job from "../models/job.models.js";
+import User from "../models/user.models.js";
 
 export async function deleteAJob(req, res) {
   try {

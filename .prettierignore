@@ -1,0 +1,47 @@
+# Environment variables
+*.env
+.env
+
+# Dependency directories
+node_modules/
+bower_components/
+
+# Build and output directories
+dist/
+build/
+coverage/
+
+# Log files
+*.log
+
+# Configuration files
+*.config.js
+*.config.cjs
+*.config.mjs
+*.config.ts
+
+# Version control files
+.git/
+.gitignore
+.gitattributes
+
+# IDE and editor settings
+.vscode/
+.idea/
+.DS_Store
+
+# Docker files
+Dockerfile
+.dockerignore
+
+# Static assets
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+
+# Specific project files
+public/
+docs/

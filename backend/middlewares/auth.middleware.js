@@ -1,5 +1,5 @@
 // models
-import Job from "../models/job.js";
+import Job from "../models/job.models.js";
 
 // modules
 import mongoose from "mongoose";

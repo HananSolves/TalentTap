@@ -1,5 +1,5 @@
-import Job from "../models/job.js";
-import User from "../models/user.js";
+import Job from "../models/job.models.js";
+import User from "../models/user.models.js";
 
 export async function postJob(req, res) {
   // Check for JSON content type (optional if using body-parser or express.json())

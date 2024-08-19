@@ -1,4 +1,4 @@
-import Job from "../models/job.js";
+import Job from "../models/job.models.js";
 
 export async function updateAJob(req, res) {
   const job = req.job;

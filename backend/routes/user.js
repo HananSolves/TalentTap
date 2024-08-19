@@ -9,7 +9,7 @@ import handleUserSignOut from "../controllers/handleUserSignOut.js";
 import getUserInfo from "../controllers/getUserInfo.js";
 
 // Custom Middlewares
-import { loggedIn } from "../middlewares/auth.js";
+import { loggedIn } from "../middlewares/auth.middleware.js";
 
 const upload = multer({
   dest: "../public/temp",

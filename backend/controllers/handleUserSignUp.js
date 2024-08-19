@@ -3,7 +3,7 @@ import bcrypt from "bcrypt";
 import uploadToCloudinary from "../services/cloudinary.js"; // assuming you have this function to upload images to Cloudinary
 
 // models
-import User from "../models/user.js";
+import User from "../models/user.models.js";
 
 // services
 import { setUser } from "../services/auth.js";

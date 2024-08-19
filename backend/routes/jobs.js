@@ -9,7 +9,7 @@ import { deleteAJob } from "../controllers/deleteAJob.js";
 import { updateAJob } from "../controllers/updateAJob.js";
 
 // middleware
-import { employersOnly, isOwner } from "../middlewares/auth.js";
+import { employersOnly, isOwner } from "../middlewares/auth.middleware.js";
 
 const router = express.Router();
 

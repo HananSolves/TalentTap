@@ -7,15 +7,15 @@ import cors from "cors";
 import "dotenv/config";
 
 // Custom Middlewares
-import notFound from "./middlewares/notFound.js";
-import errorHandler from "./middlewares/errorHandler.js";
+import notFound from "./middlewares/notFound.middleware.js";
+import errorHandler from "./middlewares/errorHandler.middleware.js";
 
 // Route Handlers
 import userRouter from "./routes/user.js";
 import databaseRouter from "./routes/jobs.js";
 
 // Database Connector
-import connectToMongoDB from "./connection.js";
+import connectToMongoDB from "./db/connection.js";
 
 const app = express();
 
@@ -23,8 +23,8 @@ const app = express();
 connectToMongoDB();
 
 // middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: "16kb" }));
+app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 
 app.use(cookieParser());
 

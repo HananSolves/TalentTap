@@ -1,4 +1,4 @@
-import Job from "../models/job.js";
+import Job from "../models/job.models.js";
 import mongoose from "mongoose";
 
 export async function getAJob(req, res) {

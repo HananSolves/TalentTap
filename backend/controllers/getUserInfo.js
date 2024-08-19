@@ -1,5 +1,5 @@
 // models
-import User from "../models/user.js";
+import User from "../models/user.models.js";
 
 async function getUserInfo(req, res) {
   try {
