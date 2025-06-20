@@ -2,6 +2,25 @@
 
 I'm excited to present **TalentTap**, a full-stack **MERN** platform built to seamlessly connect **employers** and **employees** throughout the hiring process. The platform streamlines job discovery, application handling, and proposal management with a clean and scalable architecture.
 
+## 📸 Screenshots
+
+### 🏠 Home Page
+![Home Page](./screenshots/Home.png)
+
+### 📋 Job Listings
+![Job Listings](./screenshots/Jobs.png)
+
+### 🧑‍💼 Job Posting
+![Employer Dashboard](./screenshots/JobPosting.png)
+
+### 📝 Sign Up Page
+![Sign Up Page](./screenshots/SignUp.png)
+
+### 🔐 Sign In Page
+![Sign In Page](./screenshots/SignIn.png)
+
+
+
 ---
 
 ## 🔑 Key Features
